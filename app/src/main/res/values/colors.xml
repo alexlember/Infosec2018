@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#c3d1a9</color>
+    <color name="colorPrimaryDark">#315954</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="headerBackgroundColor">#e2b27a</color>
+    <color name="progressTintColor">#172d2a</color>
+    <color name="questionNumberTextColor">#000</color>
+    <color name="textBackgroundColor">#607876</color>
+    <color name="buttonColor">#E4E0EF</color>
+    <color name="radioButtonGroupBackgroundColor">#8b7cb6</color>
+    <color name="bodyBackgroundColor">#7c766f</color>
 </resources>
