@@ -28,7 +28,7 @@ public class ResultsActivity extends AppCompatActivity {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(ResultsActivity.this, MainActivity.class);
+                Intent myIntent = new Intent(ResultsActivity.this, QuizzActivity.class);
                 ResultsActivity.this.startActivity(myIntent);
             }
         });

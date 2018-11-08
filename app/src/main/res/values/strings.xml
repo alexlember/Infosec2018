@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Сканер ВС</string>
     <string name="questionNumberText">Вопрос номер: %1$d</string>
+    <string name="checkYourKnowledge">Проверь свой уровень ИБ!</string>
+    <string name="start">Начать</string>
+    <string name="tellAboutYourself">Расскажите немного о себе</string>
+    <string name="name">ФИО: *</string>
+    <string name="company">Компания: *</string>
+    <string name="position">Должность: *</string>
+    <string name="email">Email: *</string>
+    <string name="wantReceiveDemoMaterials">Хочу получать демо-версии продуктов компании Эшелон</string>
+    <string name="acceptPolitics">Согласен с политикой обработки персональных данных *</string>
+    <string name="acceptAndStart">Подтвердить и приступить</string>
 </resources>
