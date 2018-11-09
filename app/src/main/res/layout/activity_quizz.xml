@@ -49,7 +49,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/questionNumberLabel"
                         android:textColor="@color/generalTextColor"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:layout_alignParentStart="true"
                         android:fontFamily="@font/sansation_bold"
                         android:text="@string/questionNumber"/>
@@ -68,7 +68,8 @@
                     android:id="@+id/questionText"
                     android:textColor="@color/generalTextColor"
                     android:layout_margin="10dp"
-                    android:textSize="20sp"
+                    android:text="Вопрос"
+                    android:textSize="25sp"
                     android:fontFamily="@font/sansation_bold"
                     android:gravity="center"/>
 
@@ -83,6 +84,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sansation_bold"
+                        android:textSize="22sp"
                         tools:layout_editor_absoluteY="287dp"
                         tools:layout_editor_absoluteX="70dp"
                         android:id="@+id/radioButton"/>
@@ -91,6 +93,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sansation_bold"
+                        android:textSize="22sp"
                         tools:layout_editor_absoluteY="386dp"
                         tools:layout_editor_absoluteX="70dp"
                         android:id="@+id/radioButton2"/>
@@ -99,6 +102,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sansation_bold"
+                        android:textSize="22sp"
                         tools:layout_editor_absoluteY="335dp"
                         tools:layout_editor_absoluteX="70dp"
                         android:id="@+id/radioButton3"/>
@@ -107,6 +111,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sansation_bold"
+                        android:textSize="22sp"
                         tools:layout_editor_absoluteY="239dp"
                         tools:layout_editor_absoluteX="70dp"
                         android:id="@+id/radioButton4"/>

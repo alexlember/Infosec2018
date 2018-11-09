@@ -8,8 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.example.alexlember.hello.main.controler.MainController;
 
 import java.util.Random;
+
+import static com.example.alexlember.hello.main.controler.MainController.MY_PREFS_NAME;
+import static com.example.alexlember.hello.main.controler.MainController.PREF_HAS_AT_LEAST_ONE_VICTORY;
 
 public class ResultsActivity extends AppCompatActivity {
 
@@ -40,9 +44,19 @@ public class ResultsActivity extends AppCompatActivity {
             }
         });
 
-        resultsText.setText(isSuccess
-                ? ("Поздравляем, вы прошли тест! Покажите организаторам промокод с экрана телефона для получения подарка: " +  getRandomPromoCode())
-                : "К сожалению, вы не прошли тест. Попробуйте еще.");
+        String text;
+        if (!isSuccess) {
+            text = "К сожалению, вы не прошли тест. Попробуйте еще.";
+        } else {
+            boolean hasAtLeaseOneVictory = MainController.hasAtLeastOneVictory(getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE));
+            if (!hasAtLeaseOneVictory) {
+                text = "Поздравляем, вы прошли тест! Покажите организаторам промокод с экрана телефона для получения подарка: " +  getRandomPromoCode();
+                MainController.saveToSharedPrefs(ResultsActivity.this, PREF_HAS_AT_LEAST_ONE_VICTORY, true);
+            } else {
+                text = "Поздравляем, вы прошли тест! И уже даже не в первый раз? Сразу видно, что у вас очень сильные знания в области ИБ :)";
+            }
+        }
+        resultsText.setText(text);
     }
 
     private int getRandomPromoCode() {

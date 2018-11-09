@@ -8,10 +8,9 @@ import android.view.View;
 import android.widget.*;
 import com.example.alexlember.hello.main.controler.MainController;
 
-public class MainActivity extends AppCompatActivity {
+import static com.example.alexlember.hello.main.controler.MainController.MY_PREFS_NAME;
 
-    public static final String MY_PREFS_NAME = "MyPrefsFile";
-    public static final String PREF_IS_ONBOARDING_COMPLETED = "isOnboardingCompleted";
+public class MainActivity extends AppCompatActivity {
 
     Button startButton;
 
