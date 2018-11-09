@@ -14,7 +14,7 @@ public class OnboardingValidator {
     public boolean isFormValid() {
         return isNameValid
                 && isCompanyValid
-                && isPositionValid
+                //&& isPositionValid TODO решили, что это поле необязательно
                 && isEmailValid
                 && isBoxChecked;
     }

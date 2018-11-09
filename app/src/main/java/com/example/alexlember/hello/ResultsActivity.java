@@ -1,10 +1,12 @@
 package com.example.alexlember.hello;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -13,6 +15,7 @@ public class ResultsActivity extends AppCompatActivity {
 
     TextView resultsText;
     Button resetButton;
+    ImageView backgroundImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,10 @@ public class ResultsActivity extends AppCompatActivity {
 
         resultsText = findViewById(R.id.resultsText);
         resetButton = findViewById(R.id.resetButton);
+        backgroundImageView = findViewById(R.id.backgroundImageView);
+
+        Drawable background = backgroundImageView.getDrawable();
+        background.setAlpha(70);
 
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +41,7 @@ public class ResultsActivity extends AppCompatActivity {
         });
 
         resultsText.setText(isSuccess
-                ? ("Поздравляем, вы прошли тест. Покажите организаторам с экрана телефона промокод для получения подарка: " +  getRandomPromoCode())
+                ? ("Поздравляем, вы прошли тест! Покажите организаторам промокод с экрана телефона для получения подарка: " +  getRandomPromoCode())
                 : "К сожалению, вы не прошли тест. Попробуйте еще.");
     }
 

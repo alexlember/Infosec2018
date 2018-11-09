@@ -21,14 +21,17 @@ public class Message {
         StringBuilder builder = new StringBuilder()
                 .append("ФИО: ").append(name)
                 .append("\nКомпания: ").append(company)
-                .append("\nДолжность: ").append(position)
                 .append("\nEmail: ").append(email);
 
-        if (isInterestedInDemoMaterials) {
-            builder.append("\nХочу получать материалы");
-        } else {
-            builder.append("\nНе хочу получать материалы");
+        if (position != null) {
+            builder.append("\nДолжность: ").append(position);
         }
+
+//        if (isInterestedInDemoMaterials) {
+//            builder.append("\nХочу получать материалы");
+//        } else {
+//            builder.append("\nНе хочу получать материалы");
+//        }
 
         return builder.toString();
     }

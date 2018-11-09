@@ -3,6 +3,7 @@ package com.example.alexlember.hello;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ public class QuizzActivity extends AppCompatActivity {
     RadioButton radioButton, radioButton2, radioButton3, radioButton4;
     Button submitButton, resetButton;
     ProgressBar progressBar;
+    ImageView backgroundImageView;
 
     QuizzController controller;
 
@@ -40,6 +42,7 @@ public class QuizzActivity extends AppCompatActivity {
         submitButton = findViewById(R.id.submitButton);
         resetButton = findViewById(R.id.resetButton);
         progressBar = findViewById(R.id.progressBar);
+        backgroundImageView = findViewById(R.id.backgroundImageView);
 
         init();
 
@@ -70,6 +73,9 @@ public class QuizzActivity extends AppCompatActivity {
     }
 
     private void init() {
+        Drawable background = backgroundImageView.getDrawable();
+        background.setAlpha(70);
+
         controller = new QuizzController();
         updateView();
         updateButtonEnabled();
@@ -78,7 +84,6 @@ public class QuizzActivity extends AppCompatActivity {
     private void updateButtonEnabled() {
         boolean isValid = answersRadioGroup.getCheckedRadioButtonId() != -1;
         submitButton.setEnabled(isValid);
-        submitButton.setBackgroundColor(isValid ? Color.GREEN : Color.RED);
     }
 
     private void updateView() {

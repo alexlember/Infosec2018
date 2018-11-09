@@ -2,12 +2,19 @@
 <resources>
     <color name="colorPrimary">#c3d1a9</color>
     <color name="colorPrimaryDark">#315954</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#232122</color>
+    <color name="beginButtonBegin">#ff4660</color>
+    <color name="beginButtonFocused">#f58898</color>
+    <color name="beginButtonClicked">#fdd0d7</color>
+    <color name="beginButtonDisabled">#c2aaae</color>
+    <color name="resetButtonBegin">#9e9899</color>
+    <color name="resetButtonFocused">#9e9899</color>
+    <color name="resetButtonClicked">#fdd0d7</color>
     <color name="headerBackgroundColor">#e2b27a</color>
-    <color name="progressTintColor">#172d2a</color>
-    <color name="questionNumberTextColor">#000</color>
+    <color name="progressTintColor">#141616</color>
+    <color name="generalTextColor">#000</color>
     <color name="textBackgroundColor">#607876</color>
     <color name="buttonColor">#E4E0EF</color>
     <color name="radioButtonGroupBackgroundColor">#8b7cb6</color>
-    <color name="bodyBackgroundColor">#7c766f</color>
+    <color name="whiteTransparent">#a3ffffff</color>
 </resources>

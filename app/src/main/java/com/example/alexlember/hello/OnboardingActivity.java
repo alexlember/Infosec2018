@@ -2,6 +2,7 @@ package com.example.alexlember.hello;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,10 +10,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
+import android.widget.*;
 import com.example.alexlember.hello.onboarding.OnboardingValidator;
 import com.example.alexlember.hello.onboarding.TextWatcherAdapter;
 import com.example.alexlember.hello.onboarding.controller.OnboardingController;
@@ -23,7 +21,9 @@ public class OnboardingActivity extends AppCompatActivity {
     TextInputLayout nameEditLayout, companyEditLayout, positionEditLayout, emailEditLayout;
     EditText nameEditText, companyEditText, positionEditText, emailEditText;
     Button acceptButton;
-    CheckBox acceptCheckbox, wantToReceiveCheckbox;
+    CheckBox acceptCheckbox;
+  //  CheckBox wantToReceiveCheckbox;
+    ImageView backgroundImageView;
 
     OnboardingValidator validator = new OnboardingValidator();
     OnboardingController controller = new OnboardingController();
@@ -44,8 +44,12 @@ public class OnboardingActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.emailEditText);
 
         acceptCheckbox = findViewById(R.id.acceptCheckbox);
-        wantToReceiveCheckbox = findViewById(R.id.wantToReceiveCheckbox);
+        //wantToReceiveCheckbox = findViewById(R.id.wantToReceiveCheckbox); TODO решили, что пока не нужно поле
         acceptButton = findViewById(R.id.acceptButton);
+        backgroundImageView = findViewById(R.id.backgroundImageView);
+
+        Drawable background = backgroundImageView.getDrawable();
+        background.setAlpha(70);
 
         updateButtonEnabled();
 
@@ -135,13 +139,13 @@ public class OnboardingActivity extends AppCompatActivity {
            }
        });
 
-        wantToReceiveCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-           @Override
-           public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-               controller.getMessage().setInterestedInDemoMaterials(isChecked);
-           }
-       });
+//        wantToReceiveCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//
+//           @Override
+//           public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//               controller.getMessage().setInterestedInDemoMaterials(isChecked);
+//           }
+//       });
 
 
         acceptButton.setOnClickListener(new View.OnClickListener() {
@@ -185,14 +189,14 @@ public class OnboardingActivity extends AppCompatActivity {
 
         String positionInput = positionEditText.getText().toString().trim();
 
-        if (positionInput.isEmpty()) {
-            positionEditLayout.setError("Введите должность");
-            return false;
-        } else {
+//        if (positionInput.isEmpty()) {
+//            positionEditLayout.setError("Введите должность");
+//            return false;
+//        } else {
             positionEditLayout.setError(null);
-            controller.getMessage().setPosition(positionInput);
+            controller.getMessage().setPosition(positionInput.isEmpty() ? null : positionInput);
             return true;
-        }
+      //  }
     }
 
     private boolean isEmailValid() {
@@ -222,7 +226,6 @@ public class OnboardingActivity extends AppCompatActivity {
     private void updateButtonEnabled() {
         boolean isValid = validator.isFormValid();
         acceptButton.setEnabled(isValid);
-        acceptButton.setBackgroundColor(isValid ? Color.GREEN : Color.RED);
     }
 
     private void killAllListeners() {
