@@ -9,7 +9,7 @@
     <string name="position">ДОЛЖНОСТЬ:</string>
     <string name="email">EMAIL: *</string>
     <string name="wantReceiveDemoMaterials">Хочу получать демо-версии продуктов компании Эшелон</string>
-    <string name="acceptPolitics">Я ДАЮ СОГЛАСИЕ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ С ЦЕЛЬЮ ПОЛУЧЕНИЯ ДЕМО ПРОДУКТОВ КОМПАНИИ "НПО "ЭШЕЛОН".</string>
+    <string name="acceptPolitics">Я ДАЮ СОГЛАСИЕ АО "НПО "ЭШЕЛОН" НА ОБРАБОТКУ МОИХ ПЕРСОНАЛЬНЫХ ДАННЫХ, В ПРЕДОСТАВЛЕННОМ ОБЪЕМЕ, В ЦЕЛЯХ ПОЛУЧЕНИЯ ДЕМО ПРОДУКТОВ ОТ КОМПАНИИ АО "НПО "ЭШЕЛОН".</string>
     <string name="acceptAndStart">ВПЕРЕД</string>
     <string name="questionNumber">ВОПРОС НОМЕР: </string>
 </resources>

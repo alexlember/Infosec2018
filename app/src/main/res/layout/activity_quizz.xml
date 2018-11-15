@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:screenOrientation="portrait"
-        android:layout_marginRight="16dp">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:layout_marginLeft="16dp"
+                                             android:layout_marginRight="16dp"
+                                             android:id="@+id/relativeLayout"
+                                             android:screenOrientation="portrait"
+                                             tools:layout_editor_absoluteY="81dp"
+                                             tools:context=".QuizzActivity">
 
     <ImageView
             android:layout_width="match_parent"
@@ -16,133 +19,127 @@
             android:src="@drawable/main_background" />
 
     <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context=".QuizzActivity">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <LinearLayout
+        <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_marginTop="5dp"
+                android:progressTint="@color/progressTintColor"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/progressBar"/>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/questionNumberLabel"
+                    android:textColor="@color/generalTextColor"
+                    android:textSize="16sp"
+                    android:layout_alignParentStart="true"
+                    android:fontFamily="@font/sansation_bold"
+                    android:text="@string/questionNumber"/>
+        </RelativeLayout>
+
+        <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:id="@+id/questionText"
+                android:textColor="@color/generalTextColor"
+                android:layout_margin="10dp"
+                android:text="Вопрос"
+                android:textSize="22sp"
+                android:fontFamily="@font/sansation_bold"
+                android:gravity="left"/>
 
-            <ProgressBar
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp"
-                    style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-                    android:layout_marginTop="5dp"
-                    android:progressTint="@color/progressTintColor"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:id="@+id/progressBar"/>
-
-            <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_height="wrap_content">
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/questionNumberLabel"
-                        android:textColor="@color/generalTextColor"
-                        android:textSize="16sp"
-                        android:layout_alignParentStart="true"
-                        android:fontFamily="@font/sansation_bold"
-                        android:text="@string/questionNumber"/>
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
+        <RadioGroup
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:id="@+id/questionText"
-                    android:textColor="@color/generalTextColor"
-                    android:layout_margin="10dp"
-                    android:text="Вопрос"
-                    android:textSize="25sp"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteY="192dp"
+                android:layout_margin="10dp"
+                android:gravity="left"
+                android:id="@+id/answersRadioGroup"
+                tools:layout_editor_absoluteX="46dp">
+            <RadioButton
+                    android:text="RadioButton"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/sansation_bold"
-                    android:gravity="center"/>
-
-            <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="151dp" tools:layout_editor_absoluteY="192dp"
-                    android:layout_margin="10dp"
-                    android:id="@+id/answersRadioGroup"
-                    tools:layout_editor_absoluteX="46dp">
-                <RadioButton
-                        android:text="RadioButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/sansation_bold"
-                        android:textSize="22sp"
-                        tools:layout_editor_absoluteY="287dp"
-                        tools:layout_editor_absoluteX="70dp"
-                        android:id="@+id/radioButton"/>
-                <RadioButton
-                        android:text="RadioButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/sansation_bold"
-                        android:textSize="22sp"
-                        tools:layout_editor_absoluteY="386dp"
-                        tools:layout_editor_absoluteX="70dp"
-                        android:id="@+id/radioButton2"/>
-                <RadioButton
-                        android:text="RadioButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/sansation_bold"
-                        android:textSize="22sp"
-                        tools:layout_editor_absoluteY="335dp"
-                        tools:layout_editor_absoluteX="70dp"
-                        android:id="@+id/radioButton3"/>
-                <RadioButton
-                        android:text="RadioButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/sansation_bold"
-                        android:textSize="22sp"
-                        tools:layout_editor_absoluteY="239dp"
-                        tools:layout_editor_absoluteX="70dp"
-                        android:id="@+id/radioButton4"/>
-            </RadioGroup>
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-
-                <Button
-                        android:layout_width="0dp"
-                        android:layout_weight=".70"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:fontFamily="@font/sansation_bold"
-                        android:text="Подтвердить"
-                        android:id="@+id/submitButton"
-                        android:background="@drawable/red_round_corner_button"/>
-                <Button
-                        android:layout_width="0dp"
-                        android:layout_weight=".30"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:fontFamily="@font/sansation_bold"
-                        android:text="Начать заново"
-                        android:id="@+id/resetButton"
-                        android:background="@drawable/grey_round_corner_button"/>
-            </LinearLayout>
-        </LinearLayout>
-
-
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteY="287dp"
+                    tools:layout_editor_absoluteX="70dp"
+                    android:id="@+id/radioButton"/>
+            <RadioButton
+                    android:text="RadioButton"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sansation_bold"
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteY="386dp"
+                    tools:layout_editor_absoluteX="70dp"
+                    android:id="@+id/radioButton2"/>
+            <RadioButton
+                    android:text="RadioButton"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sansation_bold"
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteY="335dp"
+                    tools:layout_editor_absoluteX="70dp"
+                    android:id="@+id/radioButton3"/>
+            <RadioButton
+                    android:text="RadioButton"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sansation_bold"
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteY="239dp"
+                    tools:layout_editor_absoluteX="70dp"
+                    android:id="@+id/radioButton4"/>
+        </RadioGroup>
     </LinearLayout>
-</RelativeLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content">
+
+        <Button
+                android:layout_width="0dp"
+                android:layout_weight=".70"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/sansation_bold"
+                android:text="Подтвердить"
+                android:id="@+id/submitButton"
+                android:background="@drawable/red_round_corner_button"/>
+        <Button
+                android:layout_width="0dp"
+                android:layout_weight=".30"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/sansation_bold"
+                android:text="Начать заново"
+                android:id="@+id/resetButton"
+                android:background="@drawable/grey_round_corner_button"/>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

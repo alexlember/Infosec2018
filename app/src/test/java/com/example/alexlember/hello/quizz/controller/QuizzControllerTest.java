@@ -15,6 +15,6 @@ public class QuizzControllerTest {
 
     @Test
     public void initModelTest() {
-        Assert.assertEquals(3, controller.getQuestionSize());
+        Assert.assertEquals(14, controller.getQuestionSize());
     }
 }

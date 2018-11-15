@@ -62,7 +62,7 @@ public class GMailSender extends javax.mail.Authenticator {
             Transport.send(message);
         } catch (Exception e) {
 
-            Log.e("error", e.getMessage());
+            Log.e("error", e.toString());
         }
     }
 

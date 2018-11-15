@@ -7,6 +7,10 @@ import android.util.Log;
 
 public class SendMailTask extends AsyncTask<Void, String, Boolean> {
 
+    private static final String SENDER_EMAIL = "test";
+    private static final String SENDER_EMAIL_PASS = "pass";
+    private static final String RECEIVER_EMAIL = "test@cnpo.ru";
+
     private ProgressDialog statusDialog;
     private Activity sendMailActivity;
     private Message message;
@@ -26,11 +30,11 @@ public class SendMailTask extends AsyncTask<Void, String, Boolean> {
 
 
             try {
-                GMailSender sender = new GMailSender("alexlember@gmail.com", "ThisIsEngland4343*");
+                GMailSender sender = new GMailSender(SENDER_EMAIL, SENDER_EMAIL_PASS);
                 sender.sendMail("Выставка ИБ. Данные тестов",
                         message.toString(),
-                        "alexlember@gmail.com",
-                        "alexlember@gmail.com");
+                        SENDER_EMAIL,
+                        RECEIVER_EMAIL);
             } catch (Exception e) {
                 Log.e("SendMail", e.getMessage(), e);
                 isSuccess = false;
