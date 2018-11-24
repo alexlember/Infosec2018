@@ -1,4 +1,4 @@
-package com.example.alexlember.hello.quizz.model;
+package ru.alexlember.quizz.model;
 
 import lombok.Getter;
 import lombok.NonNull;

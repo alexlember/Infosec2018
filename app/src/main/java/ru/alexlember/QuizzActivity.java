@@ -1,14 +1,18 @@
-package com.example.alexlember.hello;
+package ru.alexlember;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
-import com.example.alexlember.hello.quizz.controller.QuizzController;
+import ru.alexlember.hello.R;
+import ru.alexlember.quizz.controller.QuizzController;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -56,8 +60,22 @@ public class QuizzActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                controller.makeAnswer();
-                updateView();
+                boolean isCorrect = controller.makeAnswer();
+
+                if (isCorrect) {
+                    submitButton.setBackgroundResource(R.drawable.correct_answer_corner_button);
+                } else {
+                    submitButton.setBackgroundResource(R.drawable.wrong_answer_button);
+                }
+
+                final Handler handle = new Handler();
+                Runnable delay = new Runnable() {
+                    public void run() {
+                        submitButton.setBackgroundResource(R.drawable.red_round_corner_button);
+                        updateView();
+                    }
+                };
+                handle.postDelayed(delay,200);
             }
         });
 
@@ -108,7 +126,9 @@ public class QuizzActivity extends AppCompatActivity {
 
             Intent myIntent = new Intent(QuizzActivity.this, ResultsActivity.class);
             myIntent.putExtra("isSuccess", controller.isSuccess()); //Optional parameters
+            myIntent.putExtra("result", controller.getNumberOfCorrectAnswers()); //Optional parameters
             QuizzActivity.this.startActivity(myIntent);
+            finish();
         }
 
     }
@@ -150,10 +170,29 @@ public class QuizzActivity extends AppCompatActivity {
         return answer;
     }
 
+    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch (which){
+                case DialogInterface.BUTTON_POSITIVE:
+                    Intent myIntent = new Intent(QuizzActivity.this, MainActivity.class);
+                    QuizzActivity.this.startActivity(myIntent);
+                    break;
+
+                case DialogInterface.BUTTON_NEGATIVE:
+                    Log.i("QuizzActivity", "Отмена нажатия кнопки \"Назад\"");
+                    break;
+            }
+        }
+    };
+
     @SuppressLint("MissingSuperCall")
     @Override
-    public void onBackPressed()
-    {
-        // disable back button
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(QuizzActivity.this);
+        builder.setMessage("Вы уверены, что хотите прервать тест? Данные будут утеряны.")
+                .setNegativeButton("Нет", dialogClickListener)
+                .setPositiveButton("Да", dialogClickListener)
+                .show();
     }
 }

@@ -1,8 +1,9 @@
-package com.example.alexlember.hello.onboarding.controller;
+package ru.alexlember.onboarding.controller;
 
 import java.security.AccessController;
 import java.security.Provider;
 
+// Класс не используется
 public final class JSSEProvider extends Provider {
 
     public JSSEProvider() {
@@ -19,5 +20,9 @@ public final class JSSEProvider extends Provider {
                 return null;
             }
         });
+    }
+
+    public static String getProtocolPrefix() {
+        return "_tcp";
     }
 }

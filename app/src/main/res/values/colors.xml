@@ -13,8 +13,11 @@
     <color name="headerBackgroundColor">#e2b27a</color>
     <color name="progressTintColor">#141616</color>
     <color name="generalTextColor">#000</color>
+    <color name="questionTextColor">#565656</color>
     <color name="textBackgroundColor">#607876</color>
     <color name="buttonColor">#E4E0EF</color>
     <color name="radioButtonGroupBackgroundColor">#8b7cb6</color>
     <color name="whiteTransparent">#a3ffffff</color>
+    <color name="correctAnswerColor">#a361f570</color>
+    <color name="wrongAnswerColor">#9e9899</color>
 </resources>

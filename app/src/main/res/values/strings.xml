@@ -1,15 +1,25 @@
 <resources>
     <string name="app_name">Тест ИБ</string>
     <string name="questionNumberText">ВОПРОС НОМЕР: %1$d</string>
+    <string name="correctQuestionNumber">Результат: %1$d/14</string>
     <string name="checkYourKnowledge">ПРОВЕРЬТЕ СВОЙ УРОВЕНЬ ИБ!</string>
     <string name="start">НАЧАТЬ</string>
     <string name="tellAboutYourself">РАССКАЖИТЕ О СЕБЕ</string>
-    <string name="name">ФИО: *</string>
+    <string name="name">ИМЯ: *</string>
     <string name="company">КОМПАНИЯ: *</string>
     <string name="position">ДОЛЖНОСТЬ:</string>
     <string name="email">EMAIL: *</string>
     <string name="wantReceiveDemoMaterials">Хочу получать демо-версии продуктов компании Эшелон</string>
-    <string name="acceptPolitics">Я ДАЮ СОГЛАСИЕ АО "НПО "ЭШЕЛОН" НА ОБРАБОТКУ МОИХ ПЕРСОНАЛЬНЫХ ДАННЫХ, В ПРЕДОСТАВЛЕННОМ ОБЪЕМЕ, В ЦЕЛЯХ ПОЛУЧЕНИЯ ДЕМО ПРОДУКТОВ ОТ КОМПАНИИ АО "НПО "ЭШЕЛОН".</string>
+    <string name="acceptPolitics">Я ДАЮ СОГЛАСИЕ АО \"НПО \"ЭШЕЛОН\" НА ОБРАБОТКУ МОИХ ПЕРСОНАЛЬНЫХ ДАННЫХ, В ПРЕДОСТАВЛЕННОМ ОБЪЕМЕ, В ЦЕЛЯХ ПОЛУЧЕНИЯ ДЕМО ПРОДУКТОВ ОТ КОМПАНИИ АО \"НПО \"ЭШЕЛОН\".
+    </string>
+    <string name="ENTER_NAME">Введите имя</string>
+    <string name="ENTER_EMAIL">Введите email</string>
+    <string name="ENTER_CORRECT_EMAIL">Введите корректный email</string>
     <string name="acceptAndStart">ВПЕРЕД</string>
     <string name="questionNumber">ВОПРОС НОМЕР: </string>
+    <string name="serverProtocol">protocol</string>
+    <string name="serverHost">host</string>
+    <string name="serverPort">port</string>
+    <string name="httpPath">path</string>
+    <string name="clientPass">pass</string>
 </resources>

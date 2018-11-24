@@ -3,6 +3,7 @@ package com.example.alexlember.hello.quizz.controller;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import ru.alexlember.quizz.controller.QuizzController;
 
 public class QuizzControllerTest {
 

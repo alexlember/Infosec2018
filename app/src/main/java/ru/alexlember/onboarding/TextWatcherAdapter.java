@@ -1,4 +1,4 @@
-package com.example.alexlember.hello.onboarding;
+package ru.alexlember.onboarding;
 
 import android.text.TextWatcher;
 

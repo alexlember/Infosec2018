@@ -1,14 +1,23 @@
-package com.example.alexlember.hello;
+package ru.alexlember;
 
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
-import com.example.alexlember.hello.main.controler.MainController;
+import lombok.Getter;
+import lombok.val;
+import okhttp3.OkHttpClient;
+import org.jetbrains.annotations.Nullable;
+import ru.alexlember.hello.R;
+import ru.alexlember.https.HttpUtils;
+import ru.alexlember.main.controler.MainController;
 
-import static com.example.alexlember.hello.main.controler.MainController.MY_PREFS_NAME;
+import java.net.URL;
+
+import static ru.alexlember.main.controler.MainController.MY_PREFS_NAME;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,10 +25,20 @@ public class MainActivity extends AppCompatActivity {
 
     MainController controller = new MainController();
 
+    @Getter
+    private static URL url;
+
+    @Getter
+    private static OkHttpClient httpClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        val resources = getResources();
+//        url = buildHttpPath(resources);
+//        httpClient = buildHttpClient(resources);
 
         startButton = findViewById(R.id.startButton);
 
@@ -43,4 +62,19 @@ public class MainActivity extends AppCompatActivity {
         return new Intent(MainActivity.this, clazz);
     }
 
+    /**
+     * Метод генирирует корректный URL до сервера.
+     * @param res ресурсы приложения
+     * @return путь URL
+     */
+    @Nullable
+    private URL buildHttpPath(final Resources res) {
+        return HttpUtils.buildHttpPath(res);
+
+    }
+
+    @Nullable
+    private OkHttpClient buildHttpClient(final Resources res) {
+        return HttpUtils.buildHttpClient(res);
+    }
 }

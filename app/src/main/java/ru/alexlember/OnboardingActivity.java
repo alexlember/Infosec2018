@@ -1,25 +1,28 @@
-package com.example.alexlember.hello;
+package ru.alexlember;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.*;
-import com.example.alexlember.hello.onboarding.OnboardingValidator;
-import com.example.alexlember.hello.onboarding.TextWatcherAdapter;
-import com.example.alexlember.hello.onboarding.controller.OnboardingController;
-import com.example.alexlember.hello.onboarding.controller.SendMailTask;
+import ru.alexlember.hello.R;
+import ru.alexlember.main.controler.MainController;
+import ru.alexlember.onboarding.OnboardingValidator;
+import ru.alexlember.onboarding.TextWatcherAdapter;
+import ru.alexlember.onboarding.controller.OnboardingController;
+
+import static ru.alexlember.main.controler.MainController.PREF_IS_ONBOARDING_COMPLETED;
 
 public class OnboardingActivity extends AppCompatActivity {
 
     TextInputLayout nameEditLayout, companyEditLayout, positionEditLayout, emailEditLayout;
-    EditText nameEditText, companyEditText, positionEditText, emailEditText;
+    EditText nameEditText, /*companyEditText, positionEditText, */emailEditText;
     Button acceptButton;
     CheckBox acceptCheckbox;
   //  CheckBox wantToReceiveCheckbox;
@@ -34,13 +37,13 @@ public class OnboardingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_onboarding);
 
         nameEditLayout = findViewById(R.id.nameEditLayout);
-        companyEditLayout = findViewById(R.id.companyEditLayout);
-        positionEditLayout = findViewById(R.id.positionEditLayout);
+//        companyEditLayout = findViewById(R.id.companyEditLayout); TODO решили, что пока не нужно поле
+//        positionEditLayout = findViewById(R.id.positionEditLayout);
         emailEditLayout = findViewById(R.id.emailEditLayout);
 
         nameEditText = findViewById(R.id.nameEditText);
-        companyEditText = findViewById(R.id.companyEditText);
-        positionEditText = findViewById(R.id.positionEditText);
+//        companyEditText = findViewById(R.id.companyEditText);
+//        positionEditText = findViewById(R.id.positionEditText);
         emailEditText = findViewById(R.id.emailEditText);
 
         acceptCheckbox = findViewById(R.id.acceptCheckbox);
@@ -88,8 +91,8 @@ public class OnboardingActivity extends AppCompatActivity {
                 }
             }
         };
-        companyEditText.addTextChangedListener(companyTextWatcher);
-        companyEditText.setOnFocusChangeListener(companyOnFocusChangeListener);
+//        companyEditText.addTextChangedListener(companyTextWatcher);
+//        companyEditText.setOnFocusChangeListener(companyOnFocusChangeListener);
 
         TextWatcher positionTextWatcher = new TextWatcherAdapter() {
             @Override
@@ -107,8 +110,8 @@ public class OnboardingActivity extends AppCompatActivity {
                 }
             }
         };
-        positionEditText.addTextChangedListener(positionTextWatcher);
-        positionEditText.setOnFocusChangeListener(positionOnFocusChangeListener);
+//        positionEditText.addTextChangedListener(positionTextWatcher);
+//        positionEditText.setOnFocusChangeListener(positionOnFocusChangeListener);
 
         TextWatcher emailTextWatcher = new TextWatcherAdapter() {
             @Override
@@ -162,7 +165,7 @@ public class OnboardingActivity extends AppCompatActivity {
         String nameInput = nameEditText.getText().toString().trim();
 
         if (nameInput.isEmpty()) {
-            nameEditLayout.setError("Введите ФИО");
+            nameEditLayout.setError(getString(R.string.ENTER_NAME));
             return false;
         } else {
             nameEditLayout.setError(null);
@@ -173,28 +176,28 @@ public class OnboardingActivity extends AppCompatActivity {
 
     private boolean isCompanyValid() {
 
-        String companyInput = companyEditText.getText().toString().trim();
-
-        if (companyInput.isEmpty()) {
-            companyEditLayout.setError("Введите компанию");
-            return false;
-        } else {
+//        String companyInput = companyEditText.getText().toString().trim();
+//
+//        if (companyInput.isEmpty()) {
+//            companyEditLayout.setError("Введите компанию");
+//            return false;
+//        } else {
             companyEditLayout.setError(null);
-            controller.getMessage().setCompany(companyInput);
+            controller.getMessage().setCompany(null);
             return true;
-        }
+     //   }
     }
 
     private boolean isPositionValid() {
 
-        String positionInput = positionEditText.getText().toString().trim();
+        //String positionInput = positionEditText.getText().toString().trim();
 
 //        if (positionInput.isEmpty()) {
 //            positionEditLayout.setError("Введите должность");
 //            return false;
 //        } else {
             positionEditLayout.setError(null);
-            controller.getMessage().setPosition(positionInput.isEmpty() ? null : positionInput);
+            controller.getMessage().setPosition(null);
             return true;
       //  }
     }
@@ -204,10 +207,10 @@ public class OnboardingActivity extends AppCompatActivity {
         String emailInput = emailEditText.getText().toString().trim();
 
         if (emailInput.isEmpty()) {
-            emailEditLayout.setError("Введите email");
+            emailEditLayout.setError(getString(R.string.ENTER_EMAIL));
             return false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
-            emailEditLayout.setError("Введите корректный email");
+            emailEditLayout.setError(getString(R.string.ENTER_CORRECT_EMAIL));
             return false;
         } else {
             emailEditLayout.setError(null);
@@ -217,10 +220,10 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     private void changeActivity() {
-        controller.sendEmailWithDataMessage(OnboardingActivity.this);
-        Intent intent = new Intent(OnboardingActivity.this, QuizzActivity.class);
-        OnboardingActivity.this.startActivity(intent);
-        killAllListeners();
+        controller.sendRequestWithDataMessage(OnboardingActivity.this);
+//        Intent intent = new Intent(OnboardingActivity.this, QuizzActivity.class);
+//        OnboardingActivity.this.startActivity(intent);
+//        killAllListeners();
     }
 
     private void updateButtonEnabled() {
@@ -232,16 +235,33 @@ public class OnboardingActivity extends AppCompatActivity {
         nameEditText.addTextChangedListener(null);
         nameEditText.setOnFocusChangeListener(null);
 
-        companyEditText.addTextChangedListener(null);
-        companyEditText.setOnFocusChangeListener(null);
-
-        positionEditText.addTextChangedListener(null);
-        positionEditText.setOnFocusChangeListener(null);
+//        companyEditText.addTextChangedListener(null);
+//        companyEditText.setOnFocusChangeListener(null);
+//
+//        positionEditText.addTextChangedListener(null);
+//        positionEditText.setOnFocusChangeListener(null);
 
         emailEditText.addTextChangedListener(null);
         emailEditText.setOnFocusChangeListener(null);
 
         acceptCheckbox.setOnCheckedChangeListener(null);
         acceptButton.setOnClickListener(null);
+    }
+
+    public void onSuccessfulRegistration() {
+        Log.w("OnboardingActivity", "Registration succeeded.");
+        MainController.saveToSharedPrefs(this, PREF_IS_ONBOARDING_COMPLETED, true);
+        nextScreen();
+    }
+
+    public void onRegistrationFailed() {
+        Log.w("OnboardingActivity", "Registration failed.");
+        nextScreen();
+    }
+
+    private void nextScreen() {
+        Intent intent = new Intent(OnboardingActivity.this, QuizzActivity.class);
+        OnboardingActivity.this.startActivity(intent);
+        killAllListeners();
     }
 }

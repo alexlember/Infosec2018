@@ -1,7 +1,7 @@
-package com.example.alexlember.hello.quizz.controller;
+package ru.alexlember.quizz.controller;
 
-import com.example.alexlember.hello.quizz.model.Question;
-import com.example.alexlember.hello.quizz.model.QuizzFactory;
+import ru.alexlember.quizz.model.Question;
+import ru.alexlember.quizz.model.QuizzFactory;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,16 +31,19 @@ public class QuizzController {
     /**
      * Метод осуществляет действие подтверждения выбора вопроса.
      */
-    public void makeAnswer() {
+    public boolean makeAnswer() {
 
+        boolean isCorrectAnswer = false;
         if (currentQuestion.getProperAnswer().equalsIgnoreCase(selectedAnswer)) {
             numberOfCorrectAnswers++;
+            isCorrectAnswer = true;
         }
 
         currentPosition++;
         if (!isFinish()) {
             currentQuestion = questions.get(currentPosition);
         }
+        return isCorrectAnswer;
     }
 
     public boolean isSuccess() {

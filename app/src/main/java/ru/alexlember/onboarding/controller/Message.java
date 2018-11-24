@@ -1,5 +1,6 @@
-package com.example.alexlember.hello.onboarding.controller;
+package ru.alexlember.onboarding.controller;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -7,7 +8,7 @@ import lombok.Setter;
  * Обертка для отправки на почту данных о человеке.
  */
 @NoArgsConstructor
-@Setter
+@Data
 public class Message {
 
     private String name;
@@ -20,7 +21,7 @@ public class Message {
     public String toString() {
         StringBuilder builder = new StringBuilder()
                 .append("ФИО: ").append(name)
-                .append("\nКомпания: ").append(company)
+                //.append("\nКомпания: ").append(company)
                 .append("\nEmail: ").append(email);
 
         if (position != null) {

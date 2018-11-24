@@ -1,4 +1,4 @@
-package com.example.alexlember.hello.onboarding;
+package ru.alexlember.onboarding;
 
 import lombok.Setter;
 
@@ -13,7 +13,7 @@ public class OnboardingValidator {
 
     public boolean isFormValid() {
         return isNameValid
-                && isCompanyValid
+               // && isCompanyValid
                 //&& isPositionValid TODO решили, что это поле необязательно
                 && isEmailValid
                 && isBoxChecked;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.alexlember.hello">
+          package="ru.alexlember.hello">
 
     <application
             android:allowBackup="true"
@@ -8,19 +8,23 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher"
             android:supportsRtl="true"
+            android:usesCleartextTraffic="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="ru.alexlember.MainActivity"
+                  android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ResultsActivity">
+        <activity android:name="ru.alexlember.ResultsActivity"
+                  android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".OnboardingActivity">
+        <activity android:name="ru.alexlember.OnboardingActivity"
+                  android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".QuizzActivity">
+        <activity android:name="ru.alexlember.QuizzActivity"
+                  android:screenOrientation="portrait" >
         </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

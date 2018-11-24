@@ -1,4 +1,4 @@
-package com.example.alexlember.hello.onboarding.controller;
+package ru.alexlember.onboarding.controller;
 
 import android.util.Log;
 
@@ -17,6 +17,7 @@ import java.io.OutputStream;
 import java.security.Security;
 import java.util.Properties;
 
+// Класс не используется
 public class GMailSender extends javax.mail.Authenticator {
     private String user;
     private String password;
@@ -40,6 +41,7 @@ public class GMailSender extends javax.mail.Authenticator {
                 "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.socketFactory.fallback", "false");
         props.setProperty("mail.smtp.quitwait", "false");
+
 
         session = Session.getDefaultInstance(props, this);
     }

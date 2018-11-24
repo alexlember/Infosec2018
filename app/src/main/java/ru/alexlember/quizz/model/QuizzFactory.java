@@ -1,4 +1,4 @@
-package com.example.alexlember.hello.quizz.model;
+package ru.alexlember.quizz.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -155,6 +155,7 @@ public class QuizzFactory {
                     "Pay-Dream-Call-Agree");
             properAnswer = "Plan-Do-Check-Act";
             questions.add(new Question(question, answerOptions, properAnswer));
+
         } catch (QuestionModelException e) {
             System.out.println("Не удалось построить модель вопросов: " + e);
         }
