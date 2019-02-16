@@ -92,19 +92,19 @@ public class HttpUtils {
             String password = res.getString(R.string.clientPass);
 
             // init keystore
-            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-            try (InputStream in = res.openRawResource(R.raw.clnt)) {
-                keyStore.load(in, password.toCharArray());
-            }
+//            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+//            try (InputStream in = res.openRawResource(R.raw.client_cert)) {
+//                keyStore.load(in, password.toCharArray());
+//            }
 
 //            // init key manager (with key store)
-            KeyManagerFactory kmf = KeyManagerFactory.getInstance("X509");
-            kmf.init(keyStore, password.toCharArray());
-            KeyManager[] keyManagers = kmf.getKeyManagers();
+//            KeyManagerFactory kmf = KeyManagerFactory.getInstance("X509");
+//            kmf.init(keyStore, password.toCharArray());
+//            KeyManager[] keyManagers = kmf.getKeyManagers();
 
             // init trust manager factory (with key store)
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            trustManagerFactory.init(keyStore);
+            //trustManagerFactory.init(keyStore);
             TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
             if (trustManagers.length != 1 || !(trustManagers[0] instanceof X509TrustManager)) {
                 throw new IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers));
@@ -113,7 +113,7 @@ public class HttpUtils {
 
             // init ssl context (with key manager and trust manager factory)
             SSLContext sslContext = SSLContext.getInstance("TLS");
-            sslContext.init(keyManagers, trustManagers, null);
+            //sslContext.init(keyManagers, trustManagers, null);
 
             SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
             client = new OkHttpClient

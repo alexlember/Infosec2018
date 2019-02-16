@@ -19,8 +19,8 @@ public class MainController {
      * @return true - уже были выполнены, false - еще не были выполнены.
      */
     public static boolean isOnboardingCompleted(SharedPreferences prefs) {
-        //return true;
-        return prefs.getBoolean(PREF_IS_ONBOARDING_COMPLETED, false);
+        return true;
+        //return prefs.getBoolean(PREF_IS_ONBOARDING_COMPLETED, false);
     }
 
     /**

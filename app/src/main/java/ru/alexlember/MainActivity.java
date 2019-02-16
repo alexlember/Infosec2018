@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        val resources = getResources(); // TODO закомментить для запрета отправки запроса
-        url = buildHttpPath(resources);
-        httpClient = buildHttpClient(resources);
+//        val resources = getResources();
+//        url = buildHttpPath(resources);
+//        httpClient = buildHttpClient(resources);
 
         startButton = findViewById(R.id.startButton);
 
