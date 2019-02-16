@@ -11,8 +11,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         useLibrary 'org.apache.http.legacy'
-        versionCode 7
-        versionName "1.9"
+        versionCode 9
+        versionName "1.91"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

@@ -69,7 +69,7 @@ public class ResultsActivity extends AppCompatActivity {
                     text = "Превосходно! Ни одной ошибки! ";
                 }
 
-                text += "Поздравляем, вы прошли тест!";
+                text += "Поздравляем, вы прошли тест! Покажите организаторам промокод с экрана телефона для получения подарка: " +  getRandomPromoCode(); // TODO изменить текст для offline.
                 MainController.saveToSharedPrefs(ResultsActivity.this, PREF_HAS_AT_LEAST_ONE_VICTORY, true);
             } else {
                 text = "Поздравляем, вы прошли тест! И уже даже не в первый раз? Сразу видно, что у вас очень сильные знания в области ИБ :) Так держать!";

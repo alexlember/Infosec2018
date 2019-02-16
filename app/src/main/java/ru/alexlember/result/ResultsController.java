@@ -19,6 +19,6 @@ public class ResultsController {
         "\nnumber of correct answers: " + numberOfCorrectAnswers);
 
         Log.i("results: ", request.toString());
-        //new SendRequestTask(activity, request).execute();
+        new SendRequestTask(activity, request).execute(); //TODO закомментить для запрета отправки данных на сервер
     }
 }

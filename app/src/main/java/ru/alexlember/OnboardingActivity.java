@@ -221,9 +221,12 @@ public class OnboardingActivity extends AppCompatActivity {
 
     private void changeActivity() {
         controller.sendRequestWithDataMessage(OnboardingActivity.this);
-//        Intent intent = new Intent(OnboardingActivity.this, QuizzActivity.class);
-//        OnboardingActivity.this.startActivity(intent);
-//        killAllListeners();
+        {
+            // TODO закомментить для запрета отправки запроса на сервер
+            Intent intent = new Intent(OnboardingActivity.this, QuizzActivity.class);
+            OnboardingActivity.this.startActivity(intent);
+            killAllListeners();
+        }
     }
 
     private void updateButtonEnabled() {
